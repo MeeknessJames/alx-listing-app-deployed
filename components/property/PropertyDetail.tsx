@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 type Property = {
   id: number;
   title: string;
@@ -11,9 +13,11 @@ export default function PropertyDetail({ property }: { property: Property }) {
   return (
     <div className="max-w-4xl mx-auto p-6 border rounded-lg shadow-md">
       {property.imageUrl && (
-        <img
+        <Image
           src={property.imageUrl}
           alt={property.title}
+          width={800}  
+          height={400}
           className="w-full h-64 object-cover rounded-lg mb-4"
         />
       )}

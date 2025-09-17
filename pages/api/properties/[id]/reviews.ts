@@ -18,7 +18,10 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
   } = req;
 
   if (method === "GET") {
-    const reviews = allReviews[id as keyof typeof allReviews] || [];
+
+    const numericId = Array.isArray(id) ? parseInt(id[0]) : parseInt(id || "0");
+
+    const reviews = allReviews[numericId as keyof typeof allReviews] || [];
     res.status(200).json(reviews);
   } else {
     res.status(405).json({ message: "Method Not Allowed" });

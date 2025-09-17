@@ -1,3 +1,5 @@
+// interfaces/index.ts
+
 export interface PropertyProps {
   name: string;
   address: {
@@ -15,4 +17,15 @@ export interface PropertyProps {
   };
   image: string;
   discount: string;
+}
+
+export interface ButtonProps {
+  text: string;
+  onClick: () => void;
+}
+
+export interface CardProps {
+  title: string;
+  image: string;
+  description: string;
 }

@@ -16,7 +16,9 @@ const ReviewSection = ({ propertyId }: { propertyId: number }) => {
   useEffect(() => {
     const fetchReviews = async () => {
       try {
-        const response = await axios.get<Review[]>(`/api/properties/${propertyId}/reviews`);
+        const response = await axios.get<Review[]>(
+          `${process.env.NEXT_PUBLIC_API_BASE_URL}/properties/${propertyId}/reviews`
+        );
         setReviews(response.data);
       } catch (err) {
         console.error("Error fetching reviews:", err);
